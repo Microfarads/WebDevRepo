@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+    <head> 
+        <title>Lucky Sevens</title>	
+		<style>
+		h1{
+		text-align:center;
+		font-size: 300%;
+		}
+		
+		table{
+		text-align:center;
+		border: 2px solid black;
+		margin-left:auto; 
+        margin-right:auto;
+		font-size: 120%;
+		
+	
+		}
+		
+		
+		</style>
+		
+		<script type = "text/javascript">
+		function initiate(){
+			var bet = document.getElementById("inputNumber").value;
+			if (Number(bet)<=0){
+				alert("Starting bet must be greater than zero!");
+				return;
+			}
+			
+			var currentMoney = Number(bet);
+			
+			var totalRolls = 0;
+			var maxMoney = Number(bet);
+			var rollCountAtMax = 0;
+			
+			while (currentMoney>0){
+				totalRolls = totalRolls + 1;
+				dice1 = Math.floor(Math.random() * 6) + 1
+				dice2 = Math.floor(Math.random() * 6) + 1
+			
+				if (dice1 + dice2 == 7){
+				currentMoney = currentMoney + 4;
+				
+				}
+				
+				else {
+				currentMoney = currentMoney - 1;
+				}
+				
+				if (currentMoney > maxMoney){
+				maxMoney = currentMoney;
+				rollCountAtMax = totalRolls;
+				}
+				
+			
+			}
+		document.getElementById("results").style.display = "block";
+		document.getElementById("td1").innerText = "$" + parseFloat(bet).toFixed(2);
+		document.getElementById("td2").innerText = totalRolls;
+		document.getElementById("td3").innerText = "$" + parseFloat(maxMoney).toFixed(2);
+		document.getElementById("td4").innerText = rollCountAtMax
+		document.getElementById("playButton").innerText = "Play Again"
+		}
+		</script>
+		
+    </head> 
+    
+    <body>
+        <header>
+            <h1>Lucky Sevens</h1>
+        </header>
+
+        <p style = "font-size:150%; text-align:center;"><b> Starting Bet: </b> <input type="number" id="inputNumber" placeholder="$0.00" style = "border:2px solid black;"/></p>
+		<br/>
+		<p style = "text-align:center;"><button id = "playButton" onclick = "initiate();" style = "border:2px solid black; font-size:150%; font-weight:bold;">Play</button></p>
+		
+		<div id = "results" style = "display:none" > <!-- style = "display:none" -->
+		<br/><hr width = "50%" style = "border: 1px solid black;" />
+		<h1>Results </h1>
+		
+		<div id = "tableSection">
+		<table border = "1">
+		
+		<tr id = "row1" style = "background-color:darkgrey"> <td>Starting Bet</td> <td id = "td1"></td> </tr>
+		<tr id = "row2" style = "background-color:lightgrey"> <td>Total Rolls Before Going Broke </td> <td id = "td2"></td> </tr>
+		<tr id = "row3"> <td>Highest Amount Won</td> <td id = "td3"></td> </tr>
+		<tr id = "row4" style = "background-color:lightgrey"> <td>Roll Count at Highest Amount Won</td> <td id = "td4"></td> </tr>
+		
+		</table>
+		</div>
+		
+		</div>
+
+        <footer>
+
+        </footer>
+    </body> 
+</html>
