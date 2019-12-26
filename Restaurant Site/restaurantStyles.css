@@ -1,0 +1,43 @@
+header h1{
+	text-align:left;
+	
+	font-family: "Times New Roman", Times, serif;
+	
+}
+
+header h2, h4{
+	font-weight:bold
+}
+
+header{
+	
+	background-color:white;
+	padding-bottom: 20px;
+	border-style: solid;
+	
+}
+
+
+footer{
+	text-align:center;
+	background-color:white;
+	border-style: solid;
+	margin-top:5px;
+	margin-bottom:5px;
+	
+}
+nav a{
+	border: solid;
+	background-color: lightgrey;
+		}
+nav a:visited {
+	color: goldenrod;
+		}
+		
+nav a:hover {
+	font-weight: bold;
+}
+
+nav a:active{
+	text-decoration: none;
+}
